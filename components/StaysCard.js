@@ -3,6 +3,8 @@ import {HeartIcon} from '@heroicons/react/outline'
 import {StarIcon} from '@heroicons/react/solid'
 
 function StaysCard({img, location, title, description, star, price, total}) {
+
+    
     
     return (
             <div className="flex py-7 mt-3 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-xl
@@ -14,7 +16,7 @@ function StaysCard({img, location, title, description, star, price, total}) {
                 <div className="flex flex-col flex-grow pl-5">
                     <div className="flex justify-between">
                         <p>{location}</p>
-                        <HeartIcon className="h-7 cursor-pointer "/>
+                        <HeartIcon  className="h-7 cursor-pointer  "/>
                     </div>
                     <h4 className="text-xl">{title}</h4>
                     <div className="border-b pt-2">

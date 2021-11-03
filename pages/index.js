@@ -21,7 +21,7 @@ export default function Home({exploreData,cardsData}) {
         <section className='pt-6'>
         <h2 className="text-4xl font-semibold">Explore Nearby</h2>
         {/* data cards ssr */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 shadow-md">
         {exploreData?.map(({img, location, distance}) => (
           <SmallCard 
           key={img} 
@@ -35,7 +35,7 @@ export default function Home({exploreData,cardsData}) {
 
         <section>
           <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
-          <div className='flex space-x-6 overflow-scroll scrollbar-hide p-3 -ml-3'>
+          <div className='flex space-x-6 overflow-scroll scrollbar-hide p-3 -ml-3 shadow-md'>
           {cardsData?.map(({img,title}) => (
             <MediumCard
             key={img}
@@ -46,11 +46,17 @@ export default function Home({exploreData,cardsData}) {
              ) )}
           </div>
         </section>
+        
+        
         <LargeCard img='https://links.papareact.com/4cj'
           title = "The Greatest Outdoors"
           description= "Wishlists curated by Airbnb"
           buttonText= "Get Inspired"
+          
         />
+        
+        
+       
       </main>
       <Footer/>
     </div>
