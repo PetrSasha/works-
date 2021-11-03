@@ -6,7 +6,8 @@ import {
     UserIcon,
     UserCircleIcon,
 } from "@heroicons/react/solid"
-import {useState} from 'react'
+import {useState,} from 'react'
+import {useRouter} from 'next/dist/client/router'
 
 // data-RANGE-PIKER
 import 'react-date-range/dist/styles.css'; // main css file
@@ -14,12 +15,13 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 
 
-function Header() {
+function Header({placeholder}) {
 
     const [searchInput, setSearchInput] = useState('')
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [numOfGuest,setNumOfGuest] = useState(1)
+    const router = useRouter()
     const  handelSelect = (ranges) => {
         setStartDate(ranges.selection.startDate)
         setEndDate(ranges.selection.endDate)
@@ -34,13 +36,23 @@ function Header() {
         endDate:endDate,
         key:'selection',
     }
-
+    const search = () =>  router.push({
+        pathname: '/search',
+        query: {
+            location: searchInput,
+            startDate: startDate.toISOString(),
+            endDate: endDate.toISOString(),
+            numOfGuest,
+        }
+    })
+       
+    
     return (
        <div>
             <header className="sticky top-0 z-50 grid grid-cols-3 bg-white py-5 px-10 shadow-lg ">
             {/* left */}
             <div className="relative h-10 flex items-center cursor-pointer my-auto">
-                <Image src='https://links.papareact.com/qd3'
+                <Image onClick={() => router.push('/')} src='https://links.papareact.com/qd3'
                     layout="fill"
                     objectFit="contain"
                     objectPosition="left"
@@ -52,7 +64,7 @@ function Header() {
                     value={searchInput}
                     onChange={ (e) => setSearchInput(e.target.value)}
                     type="text"
-                    placeholder="Start your search..."
+                    placeholder={placeholder || "Start your search"}
                     outline ="non"
                     className="outline-none rounded-full pl-5 p-2 bg-transparent flex-grow text-gray-500 placeholder-gray-400"
                 />
@@ -91,7 +103,7 @@ function Header() {
                     </div>
                     <div className="  flex items-center">
                         <button onClick={resetInput} className="flex-grow  text-gray-500">Cancel</button>
-                        <button className="flex-grow text-red-400 ">Search</button>
+                        <button onClick={search} className="flex-grow text-red-400 ">Search</button>
                     </div>
 
                 </div>
