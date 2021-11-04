@@ -10,14 +10,14 @@ export default function Home({exploreData,cardsData}) {
   return (
     <div className="">
       <Head>
-        <title>Create Next App</title>
+        <title>AIR-BNB</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header/>
       <Banner/>
 
-      <main className='max-w-7xl mx-auto px-8 sm:px-16'>
+      <main className='max-w-7xl mx-auto px-8 sm:px-16 '>
         <section className='pt-6'>
         <h2 className="text-4xl font-semibold">Explore Nearby</h2>
         {/* data cards ssr */}

@@ -22,7 +22,7 @@ function Search({searchResults}) {
             <Header placeholder={`${location} | ${range} | ${numOfGuest} gests`}/>
             <main className="flex">
                 <section className="flex-grow pt-14 px-6">
-                    <p className="text-xs"> 300+ Stays -{range}- for {numOfGuest}  guests</p>
+                    <p className="text-sm"> 300+ Stays - <span className="text-red-600">{range}</span> - for {numOfGuest}  guests</p>
                     <h1 className="text-3xl font-semibold mt-2 mb-6">Stays in {location} </h1>
                     {/* кнопки */}
                     <div className="hidden lg:inline-flex space-x-4
